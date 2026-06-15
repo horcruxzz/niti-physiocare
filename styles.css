@@ -97,7 +97,7 @@ img { max-width: 100%; }
   min-height: 100vh; padding: 8em 1.5em 6em;
   color: #fff;
   background:
-    linear-gradient(45deg, rgba(46,139,150,.86), rgba(58,107,140,.86)),
+    linear-gradient(45deg, rgba(46,139,150,.72), rgba(46,56,66,.62)),
     url("images/banner.jpg");
   background-size: cover;
   background-position: center;
