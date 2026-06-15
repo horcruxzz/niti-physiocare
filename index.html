@@ -169,9 +169,8 @@
         <header class="major">
           <h2>Book an Appointment</h2>
         </header>
-        <!-- Static hosting can't process forms server-side; this submits via your email client.
-             Swap the action for a Formspree/Getform endpoint to collect submissions online. -->
-        <form method="post" action="mailto:nitiksha@nitiphysiocare.in" enctype="text/plain" class="appointment-form">
+        <!-- On submit, JS composes a pre-filled WhatsApp message to the clinic (see script.js). -->
+        <form id="appointment-form" class="appointment-form" data-whatsapp="916366272489">
           <div class="row gtr-uniform">
             <div class="col-6 col-12-xsmall">
               <input type="text" name="name" id="name" placeholder="Name" required />
@@ -190,7 +189,7 @@
             </div>
             <div class="col-12">
               <ul class="actions">
-                <li><input type="submit" value="Book an Appointment" class="primary" /></li>
+                <li><button type="submit" class="button primary">Book via WhatsApp</button></li>
               </ul>
             </div>
           </div>

@@ -1,5 +1,31 @@
 // ===== Niti PhysioCare — small site interactions =====
 
+// Appointment form -> pre-filled WhatsApp message
+(function () {
+  var form = document.getElementById("appointment-form");
+  if (!form) return;
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    var v = function (id) {
+      var el = document.getElementById(id);
+      return el && el.value ? el.value.trim() : "";
+    };
+    var lines = [
+      "Hello Niti PhysioCare, I'd like to book an appointment.",
+      "",
+      "Name: " + v("name"),
+      "Email: " + v("email"),
+      "Mobile: " + v("tel"),
+      "Preferred date: " + v("date"),
+    ];
+    var msg = v("message");
+    if (msg) lines.push("Details: " + msg);
+    var number = form.getAttribute("data-whatsapp");
+    var url = "https://wa.me/" + number + "?text=" + encodeURIComponent(lines.join("\n"));
+    window.open(url, "_blank", "noopener");
+  });
+})();
+
 // Smooth scroll for in-page anchors (.scrolly and any #hash link)
 (function () {
   var header = document.getElementById("header");
