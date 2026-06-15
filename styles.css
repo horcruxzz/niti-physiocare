@@ -147,6 +147,7 @@ img { max-width: 100%; }
 .spotlight:last-child { border-bottom: 0; }
 .spotlight:nth-child(even) { flex-direction: row-reverse; }
 .spotlight .image { flex: 0 0 40%; }
+.spotlight .image img { width: 100%; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,.12); display: block; }
 .spotlight .content { flex: 1; }
 .spotlight .content h2 { position: relative; padding-bottom: .35em; margin-bottom: .6em; }
 .spotlight .content h2::after {
@@ -162,13 +163,6 @@ img { max-width: 100%; }
   content: ""; position: absolute; left: 0; top: .95em;
   width: 7px; height: 7px; border-radius: 50%; background: var(--accent);
 }
-
-/* Image placeholders (originals lived on the old domain) */
-.placeholder {
-  display: grid; place-items: center; aspect-ratio: 4 / 3; border-radius: 12px;
-  background: linear-gradient(135deg, #e6f1f2, #d4e6e8); color: var(--accent);
-}
-.placeholder svg { width: 38%; height: 38%; }
 
 /* ===== Testimonials ===== */
 .reviews { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5em; }
