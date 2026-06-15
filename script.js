@@ -1,26 +1,18 @@
-// ===== [CLINIC NAME] — small site interactions =====
+// ===== Niti PhysioCare — small site interactions =====
 
-// Mobile nav toggle
+// Smooth scroll for in-page anchors (.scrolly and any #hash link)
 (function () {
-  var toggle = document.querySelector(".nav-toggle");
-  var menu = document.getElementById("nav-menu");
-  if (toggle && menu) {
-    toggle.addEventListener("click", function () {
-      var open = menu.classList.toggle("open");
-      toggle.setAttribute("aria-expanded", open ? "true" : "false");
+  var header = document.getElementById("header");
+  document.querySelectorAll('a[href^="#"]').forEach(function (link) {
+    link.addEventListener("click", function (e) {
+      var id = link.getAttribute("href");
+      if (id.length < 2) return;
+      var target = document.querySelector(id);
+      if (!target) return;
+      e.preventDefault();
+      var offset = header ? header.offsetHeight : 0;
+      var top = target.getBoundingClientRect().top + window.pageYOffset - offset;
+      window.scrollTo({ top: top, behavior: "smooth" });
     });
-    // Close menu after clicking a link (mobile)
-    menu.querySelectorAll("a").forEach(function (link) {
-      link.addEventListener("click", function () {
-        menu.classList.remove("open");
-        toggle.setAttribute("aria-expanded", "false");
-      });
-    });
-  }
-})();
-
-// Auto-update footer year
-(function () {
-  var y = document.getElementById("year");
-  if (y) y.textContent = new Date().getFullYear();
+  });
 })();
