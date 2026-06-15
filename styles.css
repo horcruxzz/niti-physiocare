@@ -165,7 +165,8 @@ img { max-width: 100%; }
 }
 
 /* ===== Testimonials ===== */
-.reviews { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5em; }
+.reviews { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5em; }
+.reviews-cta { text-align: center; margin: 2em 0 0; font-weight: 600; letter-spacing: .04em; }
 .review {
   margin: 0; padding: 1.8em; background: #fff; border: 1px solid var(--line);
   border-radius: 12px; box-shadow: 0 6px 20px rgba(0,0,0,.04); text-align: left;
